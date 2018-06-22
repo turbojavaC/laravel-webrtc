@@ -1,6 +1,7 @@
 <template>
+
   <wired-card elevation="3">
-    <div class="chat-room">
+    <router-link :to="`/chatroom/${room.id}`" tag="div" class="chat-room" exact>
       <span>Room Name:
         <b>{{ room.name }}</b>
       </span>
@@ -10,8 +11,9 @@
       <span>Created at:
         <b>{{ room.created_at }}</b>
       </span>
-    </div>
+    </router-link>
   </wired-card>
+
 </template>
 
 <script>
@@ -31,5 +33,6 @@ export default {
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  cursor: pointer;
 }
 </style>
