@@ -14,9 +14,15 @@ export default {
     CreateRoom,
   },
   data() {
-    return {
-      rooms: this.$store.state.roomsList,
-    }
+    return {}
+  },
+  computed: {
+    rooms() {
+      return this.$store.state.roomsList
+    },
+  },
+  created() {
+    this.$store.dispatch('getRooms')
   },
 }
 </script>

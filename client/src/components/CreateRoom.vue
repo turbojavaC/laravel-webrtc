@@ -19,7 +19,6 @@ export default {
       const newRoom = {
         name: this.roomName,
         author: 'Jericho',
-        date: Date.now(),
       }
       this.$store.dispatch('createRoom', newRoom)
     },

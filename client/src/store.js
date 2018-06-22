@@ -33,12 +33,27 @@ export default new Vuex.Store({
     createRoom(state, newRoom) {
       state.roomsList.push(newRoom)
     },
+    setRooms(state, rooms) {
+      state.roomsList = rooms
+    },
   },
   actions: {
     async createRoom({ commit }, newRoom) {
-      const res = await axios.get('/rooms')
-      console.log(res.data)
-      commit('createRoom', newRoom)
+      try {
+        const res = await axios.post('/rooms', newRoom)
+        console.log(res.data)
+        commit('createRoom', res.data)
+      } catch (e) {
+        console.log(e.message)
+      }
+    },
+    async getRooms({ commit }) {
+      try {
+        const res = await axios.get('/rooms')
+        commit('setRooms', res.data)
+      } catch (e) {
+        console.log(e.message)
+      }
     },
   },
 })

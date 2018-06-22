@@ -4,11 +4,11 @@
       <span>Room Name:
         <b>{{ room.name }}</b>
       </span>
-      <span>Created By:
+      <span>Created by:
         <b>{{ room.author }}</b>
       </span>
-      <span>Created On:
-        <b>{{ new Intl.DateTimeFormat('fr-FR').format(room.date) }}</b>
+      <span>Created at:
+        <b>{{ room.created_at }}</b>
       </span>
     </div>
   </wired-card>
