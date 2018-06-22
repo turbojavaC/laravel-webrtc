@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
+
+axios.defaults.baseURL = 'http://127.0.0.1:8000/api/'
 
 export default new Vuex.Store({
   state: {
@@ -32,7 +35,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    createRoom({ commit }, newRoom) {
+    async createRoom({ commit }, newRoom) {
+      const res = await axios.get('/rooms')
+      console.log(res.data)
       commit('createRoom', newRoom)
     },
   },
