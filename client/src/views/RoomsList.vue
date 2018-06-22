@@ -1,10 +1,7 @@
 <template>
   <div class="rooms-container">
     <CreateRoom />
-    <ChatRoom />
-    <ChatRoom />
-    <ChatRoom />
-    <ChatRoom />
+    <ChatRoom v-for="room in rooms" :key="room.id" :room="room" />
   </div>
 </template>
 
@@ -15,6 +12,11 @@ export default {
   components: {
     ChatRoom,
     CreateRoom,
+  },
+  data() {
+    return {
+      rooms: this.$store.state.roomsList,
+    }
   },
 }
 </script>
